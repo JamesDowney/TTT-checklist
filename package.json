@@ -9,7 +9,6 @@
     "format": "eslint src && prettier --check .",
     "watch": "node build.mjs --watch",
     "install-mafia": "create-kolmafia-script --install",
-    "deploy": "copyfiles --up 1 --exclude \"**/dependencies.txt\" \"KoLmafia/**/*\" \"mafia/**/*\""
   },
   "dependencies": {
     "kolmafia": "latest",
