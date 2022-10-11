@@ -14,9 +14,9 @@
     },
     {
       "type": "npm",
-      "script": "lint",
+      "script": "format",
       "problemMatcher": [],
-      "label": "npm: lint",
+      "label": "npm: format",
       "detail": "eslint src && prettier --check .",
       "group": {
         "kind": "test",

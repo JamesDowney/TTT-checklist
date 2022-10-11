@@ -1,5 +1,15 @@
 # Generated bundles should not be formatted
 /node_modules/
 /KoLmafia/
+/.github/
+/.vscode/
 .DS_Store
 node_modules
+.eslintrc.json
+.prettierrc.json
+build.mjs
+kolmafia-polyfill.js
+package.json
+README.md
+tsconfig.json
+babel.config.js
