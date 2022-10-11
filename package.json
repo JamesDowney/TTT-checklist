@@ -11,7 +11,7 @@
     "install-mafia": "create-kolmafia-script --install"
   },
   "dependencies": {
-    "kolmafia": "latest",
+    "kolmafia": "^5.26834.0",
     "libram": "^0.7.2"
   },
   "devDependencies": {

@@ -24,6 +24,8 @@ export default function main(): void {
             }`,
             "red"
           );
+      } else {
+        print(`Done!`, "green");
       }
     });
     print();
