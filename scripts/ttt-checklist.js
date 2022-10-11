@@ -153,7 +153,7 @@ function main() {
         locket: Object.keys(locketMonsters).includes(monster.name),
         manuel: (0, import_kolmafia2.monsterFactoidsAvailable)(monster, !1)
       };
-      (0, import_kolmafia2.print)("".concat(monster.name)), !monsterChecklist.locket || monsterChecklist.manuel < 3 ? ((0, import_kolmafia2.print)("Missing:", "red"), monsterChecklist.locket || (0, import_kolmafia2.print)("Locket Entry", "red"), monsterChecklist.manuel < 3 && (0, import_kolmafia2.print)("".concat(3 - monsterChecklist.manuel, " Manuel Entr").concat(3 - monsterChecklist.manuel > 1 ? "ies" : "y"), "red")) : (0, import_kolmafia2.print)("Done!", "green");
+      (0, import_kolmafia2.print)("".concat(monster.name)), !monsterChecklist.locket || monsterChecklist.manuel < 3 ? ((0, import_kolmafia2.print)("Missing:", "red"), monsterChecklist.locket || (0, import_kolmafia2.print)("\u2022 Locket Entry", "red"), monsterChecklist.manuel < 3 && (0, import_kolmafia2.print)("\u2022 ".concat(3 - monsterChecklist.manuel, " Manuel Entr").concat(3 - monsterChecklist.manuel > 1 ? "ies" : "y"), "red")) : (0, import_kolmafia2.print)("Done!", "green");
     }), (0, import_kolmafia2.print)();
   });
 }
