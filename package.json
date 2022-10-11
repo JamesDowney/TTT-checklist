@@ -8,7 +8,7 @@
     "build": "node build.mjs",
     "format": "eslint src && prettier --check .",
     "watch": "node build.mjs --watch",
-    "install-mafia": "create-kolmafia-script --install",
+    "install-mafia": "create-kolmafia-script --install"
   },
   "dependencies": {
     "kolmafia": "latest",
