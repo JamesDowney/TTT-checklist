@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source
-# code across multiple Node.js versions, and lint the project.
+# code across multiple Node.js versions, and Format the project.
 
-name: Build & Lint
+name: Build & Format
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - run: yarn run build
       #- run: yarn run test TODO: Readd once we have tests
 
-  lint:
+  format:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,11 +41,11 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
       - run: yarn install --frozen-lockfile
-      - run: yarn run lint
+      - run: yarn run format
 
   build:
     runs-on: ubuntu-latest
-    needs: [test, lint]
+    needs: [test, format]
     if: github.ref == 'refs/heads/main'
 
     steps:
