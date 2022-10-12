@@ -8,31 +8,30 @@ export default function main(): void {
   timeTwitchingLocations.forEach((location) => {
     print(`===${location.toString()}===`, "blue");
 
-    getMonsters(location)
-      .filter((monster) => monster.copyable)
-      .forEach((monster) => {
-        const monsterChecklist = {
-          name: monster.name,
-          locket: Object.keys(locketMonsters).includes(monster.name),
-          manuel: monsterFactoidsAvailable(monster, false),
-        };
+    getMonsters(location).forEach((monster) => {
+      const monsterChecklist = {
+        name: monster.name,
+        copyable: monster.copyable,
+        locket: Object.keys(locketMonsters).includes(monster.name),
+        manuel: monsterFactoidsAvailable(monster, false),
+      };
 
-        print(`${monster.name}`);
+      print(`${monster.name}`);
 
-        if (!monsterChecklist.locket || monsterChecklist.manuel < 3) {
-          print(`Missing:`, "red");
-          if (!monsterChecklist.locket) print(`• Locket Entry`, "red");
-          if (monsterChecklist.manuel < 3)
-            print(
-              `• ${3 - monsterChecklist.manuel} Manuel Entr${
-                3 - monsterChecklist.manuel > 1 ? "ies" : "y"
-              }`,
-              "red"
-            );
-        } else {
-          print(`Done!`, "green");
-        }
-      });
+      if ((monsterChecklist.copyable && !monsterChecklist.locket) || monsterChecklist.manuel < 3) {
+        print(`Missing:`, "red");
+        if (monsterChecklist.copyable && !monsterChecklist.locket) print(`• Locket Entry`, "red");
+        if (monsterChecklist.manuel < 3)
+          print(
+            `• ${3 - monsterChecklist.manuel} Manuel Entr${
+              3 - monsterChecklist.manuel > 1 ? "ies" : "y"
+            }`,
+            "red"
+          );
+      } else {
+        print(`Done!`, "green");
+      }
+    });
     print();
   });
 }
