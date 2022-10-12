@@ -144,10 +144,12 @@ var _templateObject;
 function _taggedTemplateLiteral(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var timeTwitchingLocations = $locations(_templateObject || (_templateObject = _taggedTemplateLiteral(["The Cave Before Time, An Illicit Bohemian Party, Moonshiners' Woods, The Roman Forum, The Post-Mall, The Spooky Old Abandoned Mine, The Rowdy Saloon, Globe Theatre Backstage, Globe Theatre Backstage, KoL Con Clan Party House, 12 West Main"]))), locketMonsters = (0, import_kolmafia2.getLocketMonsters)();
+var timeTwitchingLocations = $locations(_templateObject || (_templateObject = _taggedTemplateLiteral(["The Cave Before Time, An Illicit Bohemian Party, Moonshiners' Woods, The Roman Forum, The Post-Mall, The Spooky Old Abandoned Mine, The Rowdy Saloon, Globe Theatre Main Stage, Globe Theatre Backstage, KoL Con Clan Party House, 12 West Main"]))), locketMonsters = (0, import_kolmafia2.getLocketMonsters)();
 function main() {
   timeTwitchingLocations.forEach(function(location) {
-    (0, import_kolmafia2.print)("===".concat(location.toString(), "==="), "blue"), (0, import_kolmafia2.getMonsters)(location).forEach(function(monster) {
+    (0, import_kolmafia2.print)("===".concat(location.toString(), "==="), "blue"), (0, import_kolmafia2.getMonsters)(location).filter(function(monster) {
+      return monster.copyable;
+    }).forEach(function(monster) {
       var monsterChecklist = {
         name: monster.name,
         locket: Object.keys(locketMonsters).includes(monster.name),
