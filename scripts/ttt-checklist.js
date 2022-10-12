@@ -147,15 +147,14 @@ function _taggedTemplateLiteral(strings, raw) {
 var timeTwitchingLocations = $locations(_templateObject || (_templateObject = _taggedTemplateLiteral(["The Cave Before Time, An Illicit Bohemian Party, Moonshiners' Woods, The Roman Forum, The Post-Mall, The Spooky Old Abandoned Mine, The Rowdy Saloon, Globe Theatre Main Stage, Globe Theatre Backstage, KoL Con Clan Party House, 12 West Main"]))), locketMonsters = (0, import_kolmafia2.getLocketMonsters)();
 function main() {
   timeTwitchingLocations.forEach(function(location) {
-    (0, import_kolmafia2.print)("===".concat(location.toString(), "==="), "blue"), (0, import_kolmafia2.getMonsters)(location).filter(function(monster) {
-      return monster.copyable;
-    }).forEach(function(monster) {
+    (0, import_kolmafia2.print)("===".concat(location.toString(), "==="), "blue"), (0, import_kolmafia2.getMonsters)(location).forEach(function(monster) {
       var monsterChecklist = {
         name: monster.name,
+        copyable: monster.copyable,
         locket: Object.keys(locketMonsters).includes(monster.name),
         manuel: (0, import_kolmafia2.monsterFactoidsAvailable)(monster, !1)
       };
-      (0, import_kolmafia2.print)("".concat(monster.name)), !monsterChecklist.locket || monsterChecklist.manuel < 3 ? ((0, import_kolmafia2.print)("Missing:", "red"), monsterChecklist.locket || (0, import_kolmafia2.print)("\u2022 Locket Entry", "red"), monsterChecklist.manuel < 3 && (0, import_kolmafia2.print)("\u2022 ".concat(3 - monsterChecklist.manuel, " Manuel Entr").concat(3 - monsterChecklist.manuel > 1 ? "ies" : "y"), "red")) : (0, import_kolmafia2.print)("Done!", "green");
+      (0, import_kolmafia2.print)("".concat(monster.name)), monsterChecklist.copyable && !monsterChecklist.locket || monsterChecklist.manuel < 3 ? ((0, import_kolmafia2.print)("Missing:", "red"), monsterChecklist.copyable && !monsterChecklist.locket && (0, import_kolmafia2.print)("\u2022 Locket Entry", "red"), monsterChecklist.manuel < 3 && (0, import_kolmafia2.print)("\u2022 ".concat(3 - monsterChecklist.manuel, " Manuel Entr").concat(3 - monsterChecklist.manuel > 1 ? "ies" : "y"), "red")) : (0, import_kolmafia2.print)("Done!", "green");
     }), (0, import_kolmafia2.print)();
   });
 }
